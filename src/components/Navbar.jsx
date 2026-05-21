@@ -8,14 +8,14 @@ const Navbar = () => {
             <nav className='px-15 py-3 flex justify-between items-center'>
 
                 <div className='flex gap-2 items-center '>
-                    <div className='bg-[#4f772d] rounded-xl p-1.5'>
-                        <BookOpen className='text-black'/>
+                    <div className='bg-[#358f80] rounded-xl p-1.5'>
+                        <BookOpen className='text-white'/>
                     </div>
 
                     <Link href="/">
-                        <div className='text-xl flex font-bold'>
+                        <div className='text-xl flex font-medium'>
                             <p className='text-black'>Study</p>
-                            <p className='text-[#4f772d]'>Nook</p>
+                            <p className='text-[#358f80]'>Nook</p>
                         </div>
                     </Link>
                 </div>
@@ -32,11 +32,11 @@ const Navbar = () => {
 
 
                 <div>
-                <button className='bg-[#4f772d] text-white text-xl  px-5 py-2 rounded'>Login</button>
+                <button className='bg-[#358f80] text-white text-xl  px-5 py-2 rounded'>Login</button>
                 </div>
             </nav>
 
-        </div>
+        </div> 
     );
 };
 
