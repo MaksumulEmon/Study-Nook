@@ -1,20 +1,26 @@
+"use client"
+
 import { BookOpen } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import React from 'react';
+import ThemeChanger from './ThemeChanger';
 
 const Navbar = () => {
+
+  
     return (
         <div>
             <nav className='px-15 py-3 flex justify-between items-center'>
 
                 <div className='flex gap-2 items-center '>
                     <div className='bg-[#358f80] rounded-xl p-1.5'>
-                        <BookOpen className='text-white'/>
+                        <BookOpen className='text-white' />
                     </div>
 
                     <Link href="/">
                         <div className='text-xl flex font-medium'>
-                            <p className='text-black'>Study</p>
+                            <p className=''>Study</p>
                             <p className='text-[#358f80]'>Nook</p>
                         </div>
                     </Link>
@@ -31,12 +37,14 @@ const Navbar = () => {
                 </div>
 
 
-                <div>
-                <button className='bg-[#358f80] text-white text-xl  px-5 py-2 rounded'>Login</button>
+                <div className='flex gap-2'>
+                    <ThemeChanger />
+                
+                    <button className='bg-[#358f80] text-white text-xl  px-5 py-2 rounded'>Login</button>
                 </div>
             </nav>
 
-        </div> 
+        </div>
     );
 };
 
