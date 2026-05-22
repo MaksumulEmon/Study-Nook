@@ -13,8 +13,8 @@
 }
  */
 
-:root {
-    /* Light Theme */
+/* :root {
+
     --background: #f8fafc;
     --foreground: #0f172a;
 
@@ -26,7 +26,7 @@
 }
 
 [data-theme='dark'] {
-    /* Dark Theme */
+
     --background: #0B0F19;
     --foreground: #f8fafc;
 
@@ -41,4 +41,4 @@ body {
     background: var(--background);
     color: var(--foreground);
     transition: all 0.3s ease;
-}
+} */
