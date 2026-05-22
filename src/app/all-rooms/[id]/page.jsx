@@ -30,15 +30,17 @@ const RoomDetailsBookPage = async ({ params }) => {
                     {/* LEFT COLUMN */}
                     <div className="flex-1">
                         {/* Room Image */}
-                        <div className="rounded-2xl overflow-hidden mb-6 aspect-[16/10]">
+                        <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[16/10] bg-gray-100 shadow-md group">
                             <Image
                                 src={room.image}
                                 alt={room.roomName}
-                                className="w-full h-full object-cover"
-                                width='100'
-                                height='100'
+                                fill
+                                sizes="(max-w-7xl) 33vw, (max-w-md) 100vw, 50vw"
+                                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                                priority={false}
                             />
                         </div>
+
 
                         {/* Room Title & Bookings Badge */}
                         <div className="flex items-start justify-between mb-1">

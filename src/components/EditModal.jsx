@@ -3,8 +3,63 @@
 import { Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { Building2, DollarSign, FileText, ImageIcon, MapPin, Pencil, Users } from "lucide-react";
+import toast from "react-hot-toast";
 
 export function EditModal({ room }) {
+
+
+    // const onSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     const form = e.currentTarget;
+
+    //     const formData = new FormData(form);
+    //     const room = Object.fromEntries(formData.entries());
+    //     console.log(room)
+
+
+
+    //     // const formData = new FormData(form);
+
+    //     // const room = {
+    //     //     roomName: formData.get("roomName"),
+    //     //     image: formData.get("image"),
+    //     //     floor: formData.get("floor"),
+    //     //     pricePerHour: formData.get("pricePerHour"),
+    //     //     capacity: formData.get("capacity"),
+    //     //     description: formData.get("description"),
+
+    //     //     amenities: formData.getAll("amenities"),
+    //     // };
+
+    //     // console.log(room)
+
+
+
+
+    //     const res = await fetch(
+    //         // `http://localhost:5000/room`,
+    //         // {
+    //         //     method: 'POST',
+    //         //     headers: {
+    //         //         'Content-Type': 'application/json',
+    //         //     },
+    //         //     body: JSON.stringify(room),
+    //         // }
+    //     );
+
+    //     const data = await res.json();
+    //     console.log(data)
+
+    //     if (data) {
+    //         toast.success('Room Added Successfully!');
+    //         // form.reset();
+    //         redirect('/all-rooms')
+
+    //     }
+
+    // };
+
 
 
     const onSubmit = async (e) => {
@@ -12,61 +67,50 @@ export function EditModal({ room }) {
 
         const form = e.currentTarget;
 
-        // const formData = new FormData(form);
-        // const room = Object.fromEntries(formData.entries());
-        // console.log(room)
-
-
-
         const formData = new FormData(form);
 
-        // const room = {
-        //     roomName: formData.get("roomName"),
-        //     image: formData.get("image"),
-        //     floor: formData.get("floor"),
-        //     pricePerHour: formData.get("pricePerHour"),
-        //     capacity: formData.get("capacity"),
-        //     description: formData.get("description"),
+        const updatedRoom = {
+            roomName: formData.get("roomName"),
+            image: formData.get("image"),
+            floor: formData.get("floor"),
+            pricePerHour: formData.get("pricePerHour"),
+            capacity: formData.get("capacity"),
+            description: formData.get("description"),
 
-        //     amenities: formData.getAll("amenities"),
-        // };
+            amenities: formData.getAll("amenities"),
+        };
 
-        // console.log(room)
+        try {
 
+            const res = await fetch(
+                `http://localhost:5000/room/${room._id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(updatedRoom),
+                }
+            );
 
+            const data = await res.json();
 
+            console.log(data);
 
-        const res = await fetch(
-            // `http://localhost:5000/room`,
-            // {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(room),
-            // }
-        );
+            if (data.modifiedCount > 0) {
 
-        const data = await res.json();
-        console.log(data)
+                toast.success("Room Updated Successfully!");
+                window.location.reload();
 
-        if (data) {
-            toast.success('Room Added Successfully!');
-            // form.reset();
-            redirect('/all-rooms')
+            }
+
+        } catch (error) {
+
+            // console.log(error);
+             toast.error(error);
 
         }
-
     };
-
-
-
-    // <button className="flex-1 flex items-center justify-center gap-1.5 border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 rounded-xl transition-colors duration-200">
-    //     <Pencil className='w-4 h-4' />
-    //     Edit
-    // </button>
-
-
 
 
     return (
@@ -134,7 +178,7 @@ export function EditModal({ room }) {
                                                     placeholder="Paste image URL"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
-                                                     defaultValue={room.image}
+                                                    defaultValue={room.image}
                                                 />
                                             </div>
 
@@ -168,7 +212,7 @@ export function EditModal({ room }) {
                                                     placeholder="$20"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
-                                                     defaultValue={room.pricePerHour}
+                                                    defaultValue={room.pricePerHour}
                                                 />
                                             </div>
 
@@ -185,7 +229,7 @@ export function EditModal({ room }) {
                                                     placeholder="Maximum people"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5  placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
-                                                     defaultValue={room.capacity}
+                                                    defaultValue={room.capacity}
                                                 />
                                             </div>
 
@@ -204,7 +248,7 @@ export function EditModal({ room }) {
                                                     placeholder="Write complete room details..."
                                                     className="w-full rounded-3xl border border-gray-200 bg-white px-5 py-4 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
-                                                     defaultValue={room.description}
+                                                    defaultValue={room.description}
                                                 ></textarea>
                                             </div>
 
@@ -236,7 +280,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Projector"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
-                                                              defaultChecked={room?.amenities?.includes("Projector")}
+                                                            defaultChecked={room?.amenities?.includes("Projector")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Projector
@@ -249,7 +293,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Wi-Fi"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
-                                                              defaultChecked={room?.amenities?.includes("Wi-Fi")}
+                                                            defaultChecked={room?.amenities?.includes("Wi-Fi")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Wi-Fi
@@ -262,7 +306,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Power Outlets"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
-                                                              defaultChecked={room?.amenities?.includes("Power Outlets")}
+                                                            defaultChecked={room?.amenities?.includes("Power Outlets")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Power Outlets
@@ -275,7 +319,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Quiet Zone"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
-                                                              defaultChecked={room?.amenities?.includes("Quiet Zone")}
+                                                            defaultChecked={room?.amenities?.includes("Quiet Zone")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Quiet Zone
@@ -288,7 +332,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Air Conditioning"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
-                                                              defaultChecked={room?.amenities?.includes("Air Conditioning")}
+                                                            defaultChecked={room?.amenities?.includes("Air Conditioning")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Air Conditioning
@@ -311,7 +355,7 @@ export function EditModal({ room }) {
                                                 type="submit"
                                                 className="w-full md:w-auto px-12 py-4 rounded-2xl bg-[#9d4edd] text-white font-bold text-lg shadow-[0_12px_30px_rgba(53,143,128,0.30)] hover:bg-[#240046] hover:scale-[1.02] transition-all duration-300"
                                             >
-                                                Add Room
+                                                Update Room
                                             </button>
 
                                         </div>
