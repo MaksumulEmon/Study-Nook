@@ -1,57 +1,56 @@
 import Link from 'next/link';
-import React from 'react';
 
-const NotFoundPage = () => {
+export default function NotFound() {
   return (
-    // Primary brand color #358f80 applied cleanly across the entire canvas background
-    <main className="min-h-screen bg-[#358f80] text-white font-sans flex items-center justify-center px-6 relative overflow-hidden">
-      
-      {/* Structural Layer: Organic geometric overlay to add high-end depth */}
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+    <main className="relative min-h-screen flex items-center justify-center px-6 py-16 overflow-hidden font-sans bg-slate-950 selection:bg-[#9d4edd]/20 selection:text-white">
+      {/* Background Visual Enhancements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#9d4edd] opacity-5 pointer-events-none blur-3xl" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
 
-      {/* Clean Centered Content Container */}
-      <div className="relative z-10 max-w-md w-full bg-black/10 backdrop-blur-md border border-white/10 rounded-3xl p-10 text-center space-y-8 shadow-2xl">
+      <div className="relative z-10 max-w-xl w-full text-center flex flex-col items-center">
         
-        {/* Large Crisp Status Layout */}
-        <div className="space-y-1">
-          <h1 className="text-7xl font-black tracking-tighter text-white select-none">
-            404
-          </h1>
-          <h2 className="text-lg font-bold uppercase tracking-wider text-white/90">
-            Room Unreachable
-          </h2>
-        </div>
+        {/* Error Status Indicator */}
+        <span className="inline-block bg-[#9d4edd]/10 text-[#9d4edd] border border-[#9d4edd]/20 rounded-full text-xs font-semibold px-4 py-1.5 mb-6 tracking-widest uppercase">
+          Error Code 404
+        </span>
 
-        {/* Short Strategic Explanation */}
-        <p className="text-sm text-white/80 leading-relaxed font-medium max-w-xs mx-auto">
-          The path you took has shifted. Let's redirect your focus back to where you can get some work done.
+        {/* Abstract 404 Visual Header */}
+        <h1 className="text-[120px] sm:text-[160px] font-black leading-none tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-200 to-slate-500 select-none">
+          404
+        </h1>
+
+        {/* Messaging Hierarchy */}
+        <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          This study space does not exist.
+        </h2>
+        
+        <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400 max-w-md">
+          The page you are looking for might have been moved, deleted, or the booking link has expired. Let's get you back on track.
         </p>
 
-        {/* Clear Exit Targets */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+        {/* Action Controls */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          {/* Primary Action Button */}
           <Link
-            href="/" 
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-gray-100 text-[#358f80] font-bold text-sm transition-all duration-200 text-center shadow-lg shadow-black/10"
+            href="/"
+            className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-8 py-3.5 text-sm font-bold text-white transition-all duration-200 bg-[#9d4edd] rounded-xl hover:bg-[#8a3ec9] hover:-translate-y-0.5 shadow-lg shadow-[#9d4edd]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9d4edd]"
           >
-            Go to Home
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m12 19-7-7 7-7M5 12h14" />
+            </svg>
+            <span>Return to Dashboard</span>
           </Link>
-          
-          <a 
-            href="/rooms" 
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-transparent hover:bg-white/10 border border-white/30 text-white font-semibold text-sm transition-all duration-200 text-center"
-          >
-            Browse Rooms
-          </a>
-        </div>
 
-        {/* Subtle Identity Anchor */}
-        <div className="text-[10px] tracking-widest uppercase text-white/50 font-bold select-none pt-4">
-          Study Nook Sanctuary
+          {/* Secondary Action Link */}
+          <Link
+            href="/rooms"
+            className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 bg-slate-900/50 rounded-xl transition-all duration-200"
+          >
+            Browse Available Rooms
+          </Link>
         </div>
 
       </div>
     </main>
   );
-};
-
-export default NotFoundPage;
+}

@@ -14,14 +14,14 @@ const Navbar = () => {
             <nav className='px-15 py-3 flex justify-between items-center'>
 
                 <div className='flex gap-2 items-center '>
-                    <div className='bg-[#358f80] rounded-xl p-1.5'>
+                    <div className='bg-[#9d4edd] rounded-xl p-1.5'>
                         <BookOpen className='text-white' />
                     </div>
 
                     <Link href="/">
                         <div className='text-xl flex font-medium'>
                             <p className=''>Study</p>
-                            <p className='text-[#358f80]'>Nook</p>
+                            <p className='text-[#9d4edd]'>Nook</p>
                         </div>
                     </Link>
                 </div>
@@ -38,9 +38,9 @@ const Navbar = () => {
 
 
                 <div className='flex gap-2'>
-                    <ThemeChanger />
+                    {/* <ThemeChanger /> */}
                 
-                    <button className='bg-[#358f80] text-white text-xl  px-5 py-2 rounded'>Login</button>
+                    <button className='bg-[#9d4edd] text-white text-xl  px-5 py-2 rounded'>Login</button>
                 </div>
             </nav>
 
