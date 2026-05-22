@@ -134,6 +134,7 @@ export function EditModal({ room }) {
                                                     placeholder="Paste image URL"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
+                                                     defaultValue={room.image}
                                                 />
                                             </div>
 
@@ -167,6 +168,7 @@ export function EditModal({ room }) {
                                                     placeholder="$20"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
+                                                     defaultValue={room.pricePerHour}
                                                 />
                                             </div>
 
@@ -183,6 +185,7 @@ export function EditModal({ room }) {
                                                     placeholder="Maximum people"
                                                     className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5  placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
+                                                     defaultValue={room.capacity}
                                                 />
                                             </div>
 
@@ -201,6 +204,7 @@ export function EditModal({ room }) {
                                                     placeholder="Write complete room details..."
                                                     className="w-full rounded-3xl border border-gray-200 bg-white px-5 py-4 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                                                     required
+                                                     defaultValue={room.description}
                                                 ></textarea>
                                             </div>
 
@@ -219,6 +223,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Whiteboard"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                            defaultChecked={room?.amenities?.includes("Whiteboard")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Whiteboard
@@ -231,6 +236,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Projector"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                              defaultChecked={room?.amenities?.includes("Projector")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Projector
@@ -243,6 +249,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Wi-Fi"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                              defaultChecked={room?.amenities?.includes("Wi-Fi")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Wi-Fi
@@ -255,6 +262,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Power Outlets"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                              defaultChecked={room?.amenities?.includes("Power Outlets")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Power Outlets
@@ -267,6 +275,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Quiet Zone"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                              defaultChecked={room?.amenities?.includes("Quiet Zone")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Quiet Zone
@@ -279,6 +288,7 @@ export function EditModal({ room }) {
                                                             name="amenities"
                                                             value="Air Conditioning"
                                                             className="checkbox checkbox-sm border-[#9d4edd] checked:bg-[#9d4edd] checked:border-[#9d4edd]"
+                                                              defaultChecked={room?.amenities?.includes("Air Conditioning")}
                                                         />
                                                         <span className="text-gray-700">
                                                             Air Conditioning
