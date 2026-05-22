@@ -15,7 +15,7 @@ const RoomCard = ({ room }) => {
                     src={room.image}
                     alt={room.roomName}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
 
                 {/* Price */}
@@ -50,7 +50,7 @@ const RoomCard = ({ room }) => {
                             <MapPin size={14} />
 
                             <span>
-                                Floor {room.location}
+                                Floor {room.floor}
                             </span>
 
                         </div>
@@ -70,7 +70,7 @@ const RoomCard = ({ room }) => {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 leading-6 line-clamp-2">
+                <p className="text-sm text-gray-600 leading-6 line-clamp-1">
                     {room.description}
                 </p>
 
@@ -100,7 +100,7 @@ const RoomCard = ({ room }) => {
                 </div>
 
                 {/* Button */}
-                <Link href={`/rooms/${room._id}`}>
+                <Link href={`/all-rooms/${room._id}`}>
 
                     <Button
                         className="w-full h-11 rounded-xl bg-[#9d4edd] hover:bg-[#7b2cbf] text-white font-semibold text-sm transition-all duration-300"

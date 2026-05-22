@@ -10,6 +10,8 @@ import {
     ImageIcon,
     FileText,
 } from 'lucide-react';
+import { redirect } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const AddRoomForm = () => {
 
@@ -33,7 +35,7 @@ const AddRoomForm = () => {
         const room = {
             roomName: formData.get("roomName"),
             image: formData.get("image"),
-            location: formData.get("location"),
+            floor: formData.get("floor"),
             pricePerHour: formData.get("pricePerHour"),
             capacity: formData.get("capacity"),
             description: formData.get("description"),
@@ -44,7 +46,7 @@ const AddRoomForm = () => {
         console.log(room)
 
 
-        try {
+  
 
             const res = await fetch(
                 `http://localhost:5000/room`,
@@ -60,24 +62,23 @@ const AddRoomForm = () => {
             const data = await res.json();
             console.log(data)
 
-            if (data?.insertedId || data?.success) {
-                // toast.success('Room Added Successfully!');
-                form.reset();
+            if (data) {
+                toast.success('Room Added Successfully!');
+                // form.reset();
+                redirect('/all-rooms')
+                
             }
-
-        } catch (error) {
-            // toast.error('Something went wrong!');
-        }
+        
     };
 
 
 
     return (
-        <div className="bg-white rounded-[36px] p-6 md:p-10">
+        <div className="rounded-[36px] p-6 md:p-10">
 
             <form onSubmit={onSubmit}>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 bg-[#e0aaff]/7 p-10 rounded-2xl">
 
                     {/* Room Name */}
                     <div>
@@ -124,8 +125,8 @@ const AddRoomForm = () => {
 
                         <input
                             type="text"
-                            name="location"
-                            placeholder="Enter room location"
+                            name="floor"
+                            placeholder="Enter room Floor"
                             className="w-full h-14 rounded-2xl border border-gray-200 bg-white px-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9d4edd]/30 focus:border-[#9d4edd]"
                             required
                         />

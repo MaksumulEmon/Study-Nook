@@ -341,36 +341,40 @@ import { Building2 } from "lucide-react";
 
 const AddRoomPage = () => {
     return (
-        <section className="min-h-screen py-16 px-4">
+        <section className="min-h-screen  px-4">
 
-            <div className="max-w-6xl mx-auto">
+           
+                <div className="max-w-6xl mx-auto">
 
 
-                {/* Heading */}
-                <div className="text-center mb-14">
+                    {/* Heading */}
+                    <div className="text-center pb-14">
 
-                    <div className="inline-flex items-center gap-2 border border-[#9d4edd]/20 px-5 py-2 rounded-full text-sm text-[#9d4edd] mb-5">
-                        <Building2 size={18} />
-                        Study Room Management
+                        {/* <div className="inline-flex items-center gap-2 border border-[#9d4edd]/20 px-5 py-2 rounded-full text-sm text-[#9d4edd] mb-5">
+                            <Building2 size={18} />
+                            Study Room Management
+                        </div> */}
+
+                        <h1 className="text-4xl md:text-5xl font-black pt-8 text-gray-900 leading-tight">
+                            Add New
+                            <span className="text-[#9d4edd]">
+                                {' '}Room
+                            </span>
+                        </h1>
+
+                        <p className="text-gray-600 mt-5 max-w-2xl mx-auto leading-8 text-base md:text-lg">
+                            Share your study room with students and earn money.
+                        </p>
+
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-                        Add New
-                        <span className="text-[#9d4edd]">
-                            {' '}Room
-                        </span>
-                    </h1>
+                    {/* Client Form */}
+                    <Addroomform />
 
-                    <p className="text-gray-600 mt-5 max-w-2xl mx-auto leading-8 text-base md:text-lg">
-                        Share your study room with students and earn money.
-                    </p>
+
 
                 </div>
-
-                {/* Client Form */}
-                <Addroomform />
-
-            </div>
+         
 
         </section>
     );
