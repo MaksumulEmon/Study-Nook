@@ -15,7 +15,7 @@ export default function NotFound() {
         </span>
 
         {/* Abstract 404 Visual Header */}
-        <h1 className="text-[120px] sm:text-[160px] font-black leading-none tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-200 to-slate-500 select-none">
+        <h1 className="text-[120px] sm:text-[160px] font-black leading-none tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white via-slate-200 to-slate-500 select-none">
           404
         </h1>
 
@@ -25,7 +25,7 @@ export default function NotFound() {
         </h2>
         
         <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400 max-w-md">
-          The page you are looking for might have been moved, deleted, or the booking link has expired. Let's get you back on track.
+          The page you are looking for might have been moved, deleted, or the booking link has expired. Lets get you back on track.
         </p>
 
         {/* Action Controls */}

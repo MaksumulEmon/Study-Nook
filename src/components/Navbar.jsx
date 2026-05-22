@@ -30,7 +30,7 @@ const Navbar = () => {
 
                 <div className='flex gap-4'>
                     <Link href='/'>Home</Link>
-                    <Link href='/'>Room</Link>
+                    <Link href='/all-rooms'>Room</Link>
                     <Link href='/add-room'>Add Room</Link>
                     <Link href='/'>My Listing</Link>
                     <Link href='/'>My Booking</Link>
