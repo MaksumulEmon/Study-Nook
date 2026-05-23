@@ -30,7 +30,7 @@ export default function HeroSection() {
                     </p>
 
                     <Link
-                        href="/rooms"
+                        href="/all-rooms"
                         className="inline-flex items-center justify-center w-full gap-2 px-8 py-4 text-sm font-bold text-white transition-all duration-200 bg-[#9d4edd] rounded-xl hover:bg-[#8a3ec9] hover:-translate-y-0.5 shadow-lg shadow-[#9d4edd]/30 group sm:w-auto"
                     >
                         <span>Explore Rooms</span>

@@ -75,7 +75,7 @@ const RoomCard = ({ room }) => {
                 </p>
 
                 {/* Amenities */}
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
 
                     {(Array.isArray(room?.amenities)
                         ? room.amenities
@@ -97,7 +97,46 @@ const RoomCard = ({ room }) => {
                         </span>
                     )}
 
+                </div> */}
+
+
+                <div className="flex flex-wrap gap-2">
+
+                    {room.amenities
+                        ?.slice(0, 3)
+                        .map((item, index) => (
+
+                            <span
+                                key={index}
+                                className="px-3 py-1 rounded-full bg-[#f3e8ff] text-[#7b2cbf] text-xs font-medium"
+                            >
+                                {item}
+                            </span>
+
+                        ))}
+
+                    {room.amenities?.length > 3 && (
+
+                        <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-medium">
+
+                            +{room.amenities.length - 3} more
+
+                        </span>
+
+                    )}
+
                 </div>
+
+
+
+
+
+
+
+
+
+
+
 
                 {/* Button */}
                 <Link href={`/all-rooms/${room._id}`}>
