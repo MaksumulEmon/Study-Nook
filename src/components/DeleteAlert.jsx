@@ -57,12 +57,12 @@ export function DeleteAlert({ room }) {
               <AlertDialog.Icon status="danger" />
               <AlertDialog.Heading> {room.roomName} Delete this room permanently?</AlertDialog.Heading>
             </AlertDialog.Header>
-            <AlertDialog.Body>
+            {/* <AlertDialog.Body>
               <p>
                 This will permanently delete <strong>My Awesome Project</strong> and all of its
                 data. This action cannot be undone.
               </p>
-            </AlertDialog.Body>
+            </AlertDialog.Body> */}
             <AlertDialog.Footer>
               <Button slot="close" variant="tertiary">
                 Cancel

@@ -8,7 +8,7 @@ import ThemeChanger from './ThemeChanger';
 
 const Navbar = () => {
 
-  
+
     return (
         <div>
             <nav className='px-15 py-3 flex justify-between items-center'>
@@ -39,8 +39,10 @@ const Navbar = () => {
 
                 <div className='flex gap-2'>
                     {/* <ThemeChanger /> */}
-                
-                    <button className='bg-[#9d4edd] text-white text-xl  px-5 py-2 rounded'>Login</button>
+
+                    <Link href='/signup'>
+                        <button className='bg-[#9d4edd] text-white text-xl  px-5 py-2 rounded'>Sign Up</button>
+                    </Link>
                 </div>
             </nav>
 

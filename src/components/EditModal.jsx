@@ -2,7 +2,7 @@
 
 import { Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
-import { Building2, DollarSign, FileText, ImageIcon, MapPin, Pencil, Users } from "lucide-react";
+import { Building2, DollarSign, FileText, ImageIcon, MapPin, MessageSquare, Pencil, Users } from "lucide-react";
 import toast from "react-hot-toast";
 
 export function EditModal({ room }) {
@@ -107,7 +107,7 @@ export function EditModal({ room }) {
         } catch (error) {
 
             // console.log(error);
-             toast.error(error);
+            toast.error(error);
 
         }
     };
@@ -129,13 +129,36 @@ export function EditModal({ room }) {
                 <Modal.Container placement="auto">
                     <Modal.Dialog className="sm:max-w-4xl">
                         <Modal.CloseTrigger />
-                        <Modal.Header>
+                        {/* <Modal.Header>
                             <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
 
                             </Modal.Icon>
                             <Modal.Heading>Contact Us</Modal.Heading>
 
+                        </Modal.Header> */}
+
+                        <Modal.Header className="flex flex-col items-center justify-center  pb-6 text-center border-b border-muted/30">
+
+                            {/* Icon container */}
+                            <div className="relative flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#9d4edd]/10 to-[#7b2cbf]/10 text-[#7b2cbf] shadow-sm ring-4 ring-[#9d4edd]/10 ">
+
+                                <MessageSquare className=" stroke-[1.75]" />
+
+                                {/* soft pulse dot */}
+                                <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#9d4edd] rounded-full animate-ping opacity-60"></span>
+
+                            </div>
+
+                            {/* Heading */}
+                            <Modal.Heading className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">
+                                Edit Your Room !!
+                            </Modal.Heading>
+
+
                         </Modal.Header>
+
+
+
                         <Modal.Body className="p-6">
                             <Surface variant="default">
                                 <div className="rounded-[36px] p-6 md:p-10">
