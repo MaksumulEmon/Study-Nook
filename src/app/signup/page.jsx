@@ -106,13 +106,14 @@ const Signup = () => {
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries());
 
+        console.log(user)
         // Password Validation
-        const errorMsg = validatePassword(user.password);
+        // const errorMsg = validatePassword(user.password);
 
-        if (errorMsg) {
-            setPasswordError(errorMsg);
-            return;
-        }
+        // if (errorMsg) {
+        //     setPasswordError(errorMsg);
+        //     return;
+        // }
 
         const { data, error } = await authClient.signUp.email({
             email: user.email,
@@ -126,7 +127,7 @@ const Signup = () => {
         if (data) {
             await authClient.signOut();
             toast.success("Registration successful ! Please login.");
-            router.push("/signin");
+            router.push("/");
         }
 
         if (error) {
