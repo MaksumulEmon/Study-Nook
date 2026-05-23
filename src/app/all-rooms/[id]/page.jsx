@@ -12,6 +12,7 @@ const RoomDetailsBookPage = async ({ params }) => {
     console.log(room)
 
 
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 font-sans">
             {/* Back Button */}
@@ -123,7 +124,7 @@ const RoomDetailsBookPage = async ({ params }) => {
 
 
                                 <EditModal room={room} />
-                                <DeleteAlert  room={room}/>
+                                <DeleteAlert room={room} />
 
                                 {/* <button className="flex-1 flex items-center justify-center gap-1.5 border border-gray-200 hover:bg-red-50 text-red-500 text-sm font-medium py-2.5 rounded-xl transition-colors duration-200">
                                     <Trash className='w-4 h-4' />

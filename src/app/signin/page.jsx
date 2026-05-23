@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { redirect} from "next/navigation";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 // import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -11,7 +11,7 @@ import { authClient } from "@/lib/auth-client";
 import { Eye, EyeOff } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 
-const Signup = () => {
+const Signin = () => {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
     const [passwordError, setPasswordError] = useState("");
@@ -116,19 +116,16 @@ const Signup = () => {
         //     return;
         // }
 
-        const { data, error } = await authClient.signUp.email({
+        const { data, error } = await authClient.signIn.email({
             email: user.email,
             password: user.password,
-            name: user.name,
-            image: user.photoUrl,
         });
 
         console.log({ data, error });
 
         if (data) {
-            await authClient.signOut();
-            toast.success("Registration successful ! Please login.");
-            redirect("/login");
+            toast.success("Login successful !!");
+            redirect("/");
         }
 
         if (error) {
@@ -150,7 +147,7 @@ const Signup = () => {
             <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-10">
 
                 {/* Header */}
-                <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Login Please !!</h1>
                 <p className="text-gray-500 mt-2 mb-8">
                     Join <span className={`font-semibold ${brandTextColor}`}>STUDYNOOK</span> to explore your next study space.
                 </p>
@@ -158,17 +155,6 @@ const Signup = () => {
                 {/* Form elements */}
                 <form onSubmit={onSubmit} className="space-y-5">
 
-                    {/* Name */}
-                    <div>
-                        <label className="block mb-1.5 font-medium text-gray-700">Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="John Doe"
-                            required
-                            className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 outline-none transition-colors focus:border-[#c77dff]"
-                        />
-                    </div>
 
                     {/* Email */}
                     <div>
@@ -182,17 +168,6 @@ const Signup = () => {
                         />
                     </div>
 
-                    {/* Photo URL */}
-                    <div>
-                        <label className="block mb-1.5 font-medium text-gray-700">Photo URL</label>
-                        <input
-                            type="url"
-                            name="photoUrl"
-                            placeholder="https://example.com"
-                            required
-                            className="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 outline-none transition-colors focus:border-[#c77dff]"
-                        />
-                    </div>
 
                     {/* Password */}
                     <div>
@@ -229,7 +204,7 @@ const Signup = () => {
                         type="submit"
                         className={`w-full ${brandBgColor} text-white py-3.5 rounded-2xl  font-semibold transition-all duration-200 active:bg-[#c77dff] shadow-md shadow-[#0096c7]/10 mt-2`}
                     >
-                        Register
+                       Login
                     </button>
 
                     <div className="relative flex py-2 items-center text-gray-400">
@@ -259,9 +234,9 @@ const Signup = () => {
 
 
                 <p className="text-center text-gray-600 text-sm mt-6">
-                    Already have an account?{" "}
-                    <Link href="/signin" className={`font-semibold ${brandTextColor} hover:underline`}>
-                        Login
+                    Don’t have an account?{" "}
+                    <Link href="/signup" className={`font-semibold ${brandTextColor} hover:underline`}>
+                        signup
                     </Link>
                 </p>
 
@@ -271,4 +246,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default Signin;

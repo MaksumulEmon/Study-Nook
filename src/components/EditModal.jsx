@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { Building2, DollarSign, FileText, ImageIcon, MapPin, MessageSquare, Pencil, Users } from "lucide-react";

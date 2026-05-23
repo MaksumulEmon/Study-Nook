@@ -1,52 +1,220 @@
-"use client"
 
-import { BookOpen } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import Link from 'next/link';
-import React from 'react';
-import ThemeChanger from './ThemeChanger';
+
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Menu, X, BookOpen } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import Mynavlink from "./Mynavlink";
+import { Avatar } from "@heroui/react";
 
 const Navbar = () => {
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user;
 
+    const [open, setOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+    const pathname = usePathname();
+
+  
+    useEffect(() => {
+        setOpen(false);
+        setIsProfileOpen(false);
+    }, [pathname]);
+
+    const navLinks = user
+        ? [
+            { name: "Home", href: "/" },
+            { name: "Rooms", href: "/all-rooms" },
+            { name: "Add Room", href: "/add-room" },
+            { name: "My Listing", href: "/my-listing" },
+            { name: "My Booking", href: "/my-booking" },
+        ]
+        : [
+            { name: "Home", href: "/" },
+            { name: "Rooms", href: "/all-rooms" },
+        ];
+
+    // 🔥 Logout
+    const handleSignOut = async () => {
+        try {
+            await authClient.signOut();
+            setIsProfileOpen(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
-        <div>
-            <nav className='px-15 py-3 flex justify-between items-center'>
+        <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
+            <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
 
-                <div className='flex gap-2 items-center '>
-                    <div className='bg-[#9d4edd] rounded-xl p-1.5'>
-                        <BookOpen className='text-white' />
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-2">
+                    <div className="bg-purple-600 p-2 rounded-xl text-white">
+                        <BookOpen size={20} />
                     </div>
+                    <span className="text-xl font-bold">
+                        Study<span className="text-purple-600">Nook</span>
+                    </span>
+                </Link>
 
-                    <Link href="/">
-                        <div className='text-xl flex font-medium'>
-                            <p className=''>Study</p>
-                            <p className='text-[#9d4edd]'>Nook</p>
+                {/* Desktop Menu */}
+                <div className="hidden md:flex items-center gap-6 font-medium text-gray-700">
+                    {navLinks.map((link) => (
+                        <Mynavlink key={link.href} href={link.href}>
+                            {link.name}
+                        </Mynavlink>
+                    ))}
+                </div>
+
+                {/* Right Side */}
+                <div className="flex items-center gap-3 relative">
+
+                    {/* Auth */}
+                    {isPending ? (
+                        <div className="h-8 w-20 bg-gray-200 animate-pulse rounded-md" />
+                    ) : user ? (
+                        <div className="flex items-center gap-3">
+
+                            {/* Desktop Avatar */}
+                            <div
+                                className="hidden md:flex cursor-pointer"
+                                onClick={() => setIsProfileOpen(!isProfileOpen)}
+                            >
+                                <Avatar>
+                                    <Avatar.Image
+                                        src={user?.image}
+                                        alt={user?.name || "User"}
+                                        referrerPolicy="no-referrer"
+                                    />
+                                    <Avatar.Fallback>
+                                        {user?.name?.charAt(0)}
+                                    </Avatar.Fallback>
+                                </Avatar>
+                            </div>
+
+                            {/* Profile Dropdown */}
+                            {isProfileOpen && (
+                                <div className="absolute right-0 top-12 w-64 bg-white rounded-2xl shadow-xl border p-4 z-50">
+
+                                    <div className="border-b pb-3 mb-3">
+                                        <p className="font-semibold">{user?.name}</p>
+                                        <p className="text-sm text-gray-500 break-all">
+                                            {user?.email}
+                                        </p>
+                                    </div>
+
+                                    <div className="flex flex-col gap-2">
+
+                                        <Link
+                                            href="/my-listing"
+                                            onClick={() => setIsProfileOpen(false)}
+                                            className="px-3 py-2 rounded-xl hover:bg-gray-100"
+                                        >
+                                            My Listings
+                                        </Link>
+
+                                        <Link
+                                            href="/my-booking"
+                                            onClick={() => setIsProfileOpen(false)}
+                                            className="px-3 py-2 rounded-xl hover:bg-gray-100"
+                                        >
+                                            My Bookings
+                                        </Link>
+
+                                        <button
+                                            onClick={handleSignOut}
+                                            className="px-3 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600"
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                    </Link>
-                </div>
+                    ) : (
+                        <div className="hidden md:flex items-center gap-3">
+                            <Link href="/signin" className="text-gray-600 hover:text-black">
+                                Login
+                            </Link>
+                            <Link
+                                href="/signup"
+                                className="bg-purple-600 text-white px-4 py-2 rounded-lg"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    )}
 
+                    {/* Mobile Avatar (IMPORTANT FIX) */}
+                    {user && (
+                        <div
+                            className="md:hidden cursor-pointer"
+                            onClick={() => setIsProfileOpen(!isProfileOpen)}
+                        >
+                            <Avatar>
+                                <Avatar.Image
+                                    src={user?.image}
+                                    alt={user?.name}
+                                    referrerPolicy="no-referrer"
+                                />
+                                <Avatar.Fallback>
+                                    {user?.name?.charAt(0)}
+                                </Avatar.Fallback>
+                            </Avatar>
+                        </div>
+                    )}
 
-
-                <div className='flex gap-4'>
-                    <Link href='/'>Home</Link>
-                    <Link href='/all-rooms'>Room</Link>
-                    <Link href='/add-room'>Add Room</Link>
-                    <Link href='/'>My Listing</Link>
-                    <Link href='/'>My Booking</Link>
-                </div>
-
-
-                <div className='flex gap-2'>
-                    {/* <ThemeChanger /> */}
-
-                    <Link href='/signup'>
-                        <button className='bg-[#9d4edd] text-white text-xl  px-5 py-2 rounded'>Sign Up</button>
-                    </Link>
+                    {/* Hamburger */}
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className="md:hidden p-2"
+                    >
+                        {open ? <X /> : <Menu />}
+                    </button>
                 </div>
             </nav>
 
-        </div>
+            {/* Mobile Menu */}
+            {open && (
+                <div className="md:hidden px-4 pb-4 border-t bg-white flex flex-col gap-3">
+
+                    {navLinks.map((link) => (
+                        <Mynavlink
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                        >
+                            {link.name}
+                        </Mynavlink>
+                    ))}
+
+                    {!user && (
+                        <div className="pt-3 flex flex-col gap-2">
+                            <Link
+                                href="/signin"
+                                onClick={() => setOpen(false)}
+                                className="text-center py-2 border rounded-lg"
+                            >
+                                Login
+                            </Link>
+
+                            <Link
+                                href="/signup"
+                                onClick={() => setOpen(false)}
+                                className="text-center py-2 bg-purple-600 text-white rounded-lg"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            )}
+        </header>
     );
 };
 

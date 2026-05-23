@@ -9,6 +9,8 @@ const allRooms = async () => {
 
     console.log(rooms)
 
+
+
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className="text-3xl pb-5 text-center pt-8 md:text-4xl font-black text-gray-900 tracking-tight">

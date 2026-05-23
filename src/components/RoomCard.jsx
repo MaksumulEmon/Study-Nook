@@ -12,9 +12,6 @@ import { motion } from "framer-motion";
 
 
 
-
-
-
 const cardVariant = {
   hidden: { 
     opacity: 0, 
@@ -133,7 +130,7 @@ const RoomCard = ({ room }) => {
 
                     {/* Button */}
                     <Link href={`/all-rooms/${room._id}`}>
-                        <Button className="w-full h-11 rounded-xl bg-[#9d4edd] hover:bg-[#7b2cbf] text-white font-semibold text-sm transition-all duration-300">
+                        <Button className="w-full h-11 rounded-xl bg-[#c77dff] hover:bg-[#7b2cbf] text-white font-semibold text-sm transition-all duration-300">
                             View Details
                         </Button>
                     </Link>
