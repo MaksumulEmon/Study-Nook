@@ -2,7 +2,7 @@ import React from 'react';
 
 const StudentReview = () => {
     return (
-        <section className="py-20 px-4 bg-gradient-to-b from-white to-[#f8f2ff]">
+        <section className="py-20 px-4 bg-linear-to-b from-white to-[#f8f2ff]">
 
             <div className="max-w-7xl mx-auto">
 

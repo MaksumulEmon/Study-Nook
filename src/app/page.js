@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import FeaturedRoom from "@/components/Featured";
 import StudentReview from "@/components/StudentReview";
+import StudyTips from "@/components/StudyTips";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <FeaturedRoom/>
       <StudentReview/>
+      <StudyTips/>
     </>
   );
 }
