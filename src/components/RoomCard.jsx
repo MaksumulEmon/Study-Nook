@@ -64,7 +64,7 @@ const RoomCard = ({ room }) => {
                     />
 
                     {/* Price */}
-                    <div className="absolute top-3 right-3 bg-[#9d4edd] text-white px-3 py-1.5 rounded-xl shadow-md">
+                    <div className="absolute top-3 right-3 bg-[#f3e8ff] text-black px-3 py-1.5 rounded-xl shadow-md">
 
                         <p className="text-[10px] font-medium leading-none opacity-90">
                             Per Hour
