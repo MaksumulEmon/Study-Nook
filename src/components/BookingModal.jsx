@@ -7,8 +7,12 @@ import { Modal } from "@heroui/react";
 import { BookOpen, Clock3, CalendarDays, StickyNote, Book } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function BookingModal({ room }) {
+
+    const router = useRouter();
+
 
     const { data: session } = authClient.useSession();
     const user = session?.user;
@@ -58,13 +62,19 @@ export default function BookingModal({ room }) {
             userEmail: user.email,
             userImage: user.image,
 
+            // roomId: room?._id,
+            roomName: room?.roomName,
+            roomImage: room?.image,
+
             date,
             startTime,
             endTime,
             totalCost,
             note,
+
+
         };
-        
+
         console.log(bookingData)
 
         try {
@@ -84,7 +94,11 @@ export default function BookingModal({ room }) {
                 return;
             }
 
-            toast.success("Room booked successfully!");
+            if (data) {
+                toast.success("Room booked successfully!");
+                router.push("/")
+               
+            }
 
             // reset
             setDate("");
