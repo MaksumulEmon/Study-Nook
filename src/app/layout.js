@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
       className={`${bricolageGrotesque.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+   
         <Navbar />
         {children}
         <Footer />

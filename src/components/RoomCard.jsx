@@ -134,7 +134,7 @@ const RoomCard = ({ room }) => {
 
                     {/* Button */}
                     <Link href={`/all-rooms/${room._id}`}>
-                        <Button className="w-full h-11 rounded-xl bg-[#c77dff] hover:bg-[#7b2cbf] text-white font-semibold text-sm transition-all duration-300">
+                        <Button className="w-full h-11 rounded-xl bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 hover:bg-[#7b2cbf] text-white font-semibold text-sm transition-all duration-300">
                             View Details
                         </Button>
                     </Link>
