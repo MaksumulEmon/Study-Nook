@@ -13,27 +13,31 @@ import { motion } from "framer-motion";
 
 
 const cardVariant = {
-  hidden: { 
-    opacity: 0, 
-    x: -60, // Slightly deeper starting point to appreciate the longer glide
-    scale: 0.97 
-  },
-  show: (i) => ({
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.12, // Slower, more intentional stagger wave (120ms)
-      duration: 0.85,  // Increased from 0.45s to 0.85s for a rich, cinematic crawl
-      ease: [0.22, 1, 0.36, 1], // A majestic cubic-bezier that stays smooth at slow speeds
+    hidden: {
+        opacity: 0,
+        x: -60, // Slightly deeper starting point to appreciate the longer glide
+        scale: 0.97
     },
-  }),
+    show: (i) => ({
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        transition: {
+            delay: i * 0.12, // Slower, more intentional stagger wave (120ms)
+            duration: 0.85,  // Increased from 0.45s to 0.85s for a rich, cinematic crawl
+            ease: [0.22, 1, 0.36, 1], // A majestic cubic-bezier that stays smooth at slow speeds
+        },
+    }),
 };
 
 
 
 
 const RoomCard = ({ room }) => {
+
+
+
+
 
 
     return (

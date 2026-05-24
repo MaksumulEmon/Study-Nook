@@ -4,13 +4,13 @@ import Link from 'next/link';
 import React from 'react';
 
 const AllRooms = async () => {
-    const res = await fetch('http://localhost:5000/room',{
-        cache:"no-store"
-    })
+    const res = await fetch('http://localhost:5000/room')
     const rooms = await res.json();
 
     console.log(rooms)
 
+    // const { data: session } = authClient.useSession();
+    // const user = session?.user;
 
 
     return (

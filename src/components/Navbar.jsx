@@ -39,7 +39,7 @@ const Navbar = () => {
             { name: "Rooms", href: "/all-rooms" },
         ];
 
-    // 🔥 Logout
+
     const handleSignOut = async () => {
         try {
             await authClient.signOut();
