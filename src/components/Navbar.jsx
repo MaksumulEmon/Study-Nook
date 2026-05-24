@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import Mynavlink from "./Mynavlink";
 import { Avatar } from "@heroui/react";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -42,6 +43,7 @@ const Navbar = () => {
     const handleSignOut = async () => {
         try {
             await authClient.signOut();
+            toast.error("Logout")
             setIsProfileOpen(false);
         } catch (error) {
             console.log(error);

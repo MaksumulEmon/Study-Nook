@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { redirect} from "next/navigation";
+import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 // import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -34,6 +34,15 @@ const Signin = () => {
             return "Password must contain at least one lowercase letter.";
         }
         return ""; // Clear error if all pass
+
+
+
+   
+
+
+
+
+
     };
 
     // 1. Email/Password Submission Flow
@@ -204,7 +213,7 @@ const Signin = () => {
                         type="submit"
                         className={`w-full ${brandBgColor} text-white py-3.5 rounded-2xl  font-semibold transition-all duration-200 active:bg-[#c77dff] shadow-md shadow-[#0096c7]/10 mt-2`}
                     >
-                       Login
+                        Login
                     </button>
 
                     <div className="relative flex py-2 items-center text-gray-400">

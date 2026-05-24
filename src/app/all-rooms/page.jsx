@@ -3,8 +3,10 @@ import { Building2 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
-const allRooms = async () => {
-    const res = await fetch('http://localhost:5000/room')
+const AllRooms = async () => {
+    const res = await fetch('http://localhost:5000/room',{
+        cache:"no-store"
+    })
     const rooms = await res.json();
 
     console.log(rooms)
@@ -68,4 +70,4 @@ const allRooms = async () => {
     );
 };
 
-export default allRooms;
+export default AllRooms;
