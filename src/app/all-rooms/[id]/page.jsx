@@ -2,16 +2,25 @@
 import BookingModal from '@/components/BookingModal';
 import { DeleteAlert } from '@/components/DeleteAlert';
 import { EditModal } from '@/components/EditModal';
+import { auth } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { AlignEndHorizontal, Book, Lasso, Pencil, Trash, UsersRound } from 'lucide-react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
 const RoomDetailsBookPage = async ({ params }) => {
-    const { id } = await params
-    const res = await fetch(`http://localhost:5000/room/${id}` ,{
-        headers:{
-            authorization: "Logged in"
+    const { id } = await params;
+
+    const {token }= await auth.api.getToken({
+        headers: await headers()
+    })
+
+    console.log(token);
+
+    const res = await fetch(`http://localhost:5000/room/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
         }
     })
     const room = await res.json()
