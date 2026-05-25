@@ -16,7 +16,7 @@ const RoomDetailsBookPage = async ({ params }) => {
         headers: await headers()
     })
 
-    console.log(token);
+    // console.log(token);
 
     const res = await fetch(`http://localhost:5000/room/${id}`, {
         headers: {
@@ -25,16 +25,6 @@ const RoomDetailsBookPage = async ({ params }) => {
     })
     const room = await res.json()
     console.log(room)
-
-
-
-
-
-// gjhdjhjkhfjnghjtdgfhygfmnhkmnkhgfj
-
-
-
-
 
 
 
