@@ -12,7 +12,7 @@ import React from 'react';
 const RoomDetailsBookPage = async ({ params }) => {
     const { id } = await params;
 
-    const {token }= await auth.api.getToken({
+    const { token } = await auth.api.getToken({
         headers: await headers()
     })
 
@@ -26,6 +26,14 @@ const RoomDetailsBookPage = async ({ params }) => {
     const room = await res.json()
     console.log(room)
 
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    // const userId = session?.user?.id;
+
+
+    const isOwner = room.userId === session?.user?.id;
 
 
     return (
@@ -135,8 +143,16 @@ const RoomDetailsBookPage = async ({ params }) => {
                             <div className="flex gap-2">
 
 
-                                <EditModal room={room} />
-                                <DeleteAlert room={room} />
+                                {/* <EditModal room={room} />
+                                <DeleteAlert room={room} /> */}
+
+
+                                {isOwner && (
+                                    <>
+                                        <EditModal room={room} />
+                                        <DeleteAlert room={room} />
+                                    </>
+                                )}
 
 
                             </div>
@@ -153,7 +169,7 @@ const RoomDetailsBookPage = async ({ params }) => {
                                 </div>
                                 <div>
                                     <p className="text-sm font-semibold text-gray-900">{ }</p>
-                                    <p className="text-xs text-gray-400">{ }</p>
+                                    <p className="text-xs text-gray-400">   {room.userName}</p>
                                 </div>
                             </div>
                         </div>

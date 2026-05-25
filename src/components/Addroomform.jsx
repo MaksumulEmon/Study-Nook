@@ -1,5 +1,6 @@
 'use client';
 
+import { authClient } from '@/lib/auth-client';
 import {
     Building2,
     MapPin,
@@ -16,7 +17,8 @@ import toast from 'react-hot-toast';
 const AddRoomForm = () => {
 
 
-
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
 
 
     const onSubmit = async (e) => {
@@ -41,34 +43,40 @@ const AddRoomForm = () => {
             description: formData.get("description"),
 
             amenities: formData.getAll("amenities"),
+         
+
+            // ADD THESE
+            userId: user.id,
+            userName: user.name,
+            userEmail: user.email,
         };
 
         console.log(room)
 
 
-  
 
-            const res = await fetch(
-                `http://localhost:5000/room`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(room),
-                }
-            );
 
-            const data = await res.json();
-            console.log(data)
-
-            if (data) {
-                toast.success('Room Added Successfully!');
-                // form.reset();
-                redirect('/all-rooms')
-                
+        const res = await fetch(
+            `http://localhost:5000/room`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(room),
             }
-        
+        );
+
+        const data = await res.json();
+        console.log(data)
+
+        if (data) {
+            toast.success('Room Added Successfully!');
+            // form.reset();
+            redirect('/all-rooms')
+
+        }
+
     };
 
 
