@@ -16,11 +16,12 @@ export async function proxy(request) {
 
 
 
-    
-
 // Alternatively, you can use a default export:
 // export default function proxy(request) { ... }
 
 export const config = {
-    matcher: ['/all-rooms/:path']
+    matcher: ['/add-room','/my-booking','/all-rooms/:path']
 }
+
+
+// '/all-rooms/:path'
