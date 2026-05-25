@@ -96,7 +96,7 @@ export default function BookingModal({ room }) {
 
             if (data) {
                 toast.success("Room booked successfully!");
-                router.push("/")
+                router.push("/my-booking")
                
             }
 
