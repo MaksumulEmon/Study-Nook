@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque,  } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "next-themes";
@@ -10,10 +10,6 @@ const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "StudyNook – Home",
@@ -24,11 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
+
       className={`${bricolageGrotesque.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-   
+
         <Navbar />
         {children}
         <Footer />
@@ -41,3 +37,5 @@ export default function RootLayout({ children }) {
 
 
 
+// suppressHydrationWarning
+// suppressHydrationWarning={true}

@@ -22,7 +22,7 @@ const Signin = () => {
 
     // --- DESIGN CONFIGURATION ---
     const brandTextColor = "text-[#9d4edd]";
-    const brandBgColor = "bg-[#9d4edd]";
+    const brandBgColor = "bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500";
 
     // ----------------------------
 
@@ -122,7 +122,7 @@ const Signin = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 name="password"
-                                placeholder="••••••••"
+                                placeholder="Enter Your Password"
                                 required
                                 onChange={() => setPasswordError("")} // Clear error message when user re-types
                                 className={`w-full border-2 rounded-2xl pl-4 pr-12 py-3 outline-none transition-colors ${passwordError ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-[#c77dff]"
@@ -148,10 +148,15 @@ const Signin = () => {
 
                     <button
                         type="submit"
-                        className={`w-full ${brandBgColor} text-white py-3.5 rounded-2xl  font-semibold transition-all duration-200 active:bg-[#c77dff] shadow-md shadow-[#0096c7]/10 mt-2`}
+                        className={`w-full ${brandBgColor} cursor-pointer text-white py-3.5 rounded-2xl font-semibold border-0 outline-none transition-all duration-200 hover:opacity-90 active:opacity-75 shadow-md shadow-[#0096c7]/10 mt-2`}
                     >
                         Login
                     </button>
+
+
+
+
+
 
                     <div className="relative flex py-2 items-center text-gray-400">
                         <div className="flex-grow border-t border-gray-200"></div>

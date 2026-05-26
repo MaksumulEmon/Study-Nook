@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 // import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash } from "lucide-react";
@@ -13,14 +14,18 @@ export function DeleteAlert({ room }) {
 
   const handleDelete = async () => {
 
-    // const { data: tokenData } = await authClient.token();
-    // console.log(tokenData);
+
+
+
+    const { data: tokenData } = await authClient.token()
+    console.log(tokenData)
+
 
     const res = await fetch(`http://localhost:5000/room/${room._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
-        // authorization: `bearer ${tokenData?.token}`
+        authorization: `bearer ${tokenData?.token}`
       }
 
     });

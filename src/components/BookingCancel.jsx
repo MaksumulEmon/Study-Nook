@@ -11,6 +11,7 @@ export function BookingCancel({ bookingId, booking }) {
     const handleCancelbooking = async () => {
 
         const { data: tokenData } = await authClient.token()
+        console.log(tokenData)
 
         const res = await fetch(`http://localhost:5000/booking/${bookingId}`, {
             method: "DELETE",

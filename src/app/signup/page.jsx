@@ -18,7 +18,7 @@ const Signup = () => {
 
     // --- DESIGN CONFIGURATION ---
     const brandTextColor = "text-[#9d4edd]";
-    const brandBgColor = "bg-[#9d4edd]";
+    const brandBgColor = "bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500";
 
     // ----------------------------
 
@@ -35,68 +35,6 @@ const Signup = () => {
         }
         return ""; // Clear error if all pass
     };
-
-    // 1. Email/Password Submission Flow
-    // const onSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setPasswordError("");
-
-    //     const formData = new FormData(e.currentTarget);
-    //     const user = Object.fromEntries(formData.entries());
-
-    //     const {data, error} =await authClient.signUp.email({
-    //         email: user.email,
-    //         password: user.password,
-    //         name: user.name,
-    //         image: user.image
-
-    //     })
-
-    //     console.log({data,error})
-
-    //     if(data){
-    //         redirect('/signin')
-    //     }
-
-    //    if (error) {
-    //         toast.error(error.message)
-    //     }
-
-    //     // Validate password before submission
-    //     // const errorMsg = validatePassword(password);
-    //     // if (errorMsg) {
-    //     //     setPasswordError(errorMsg);
-    //     //     return; // Stop submission
-    //     // }
-
-    //     // const newUser = { name, email, photoUrl, password };
-
-    //     // try {
-    //     //     const res = await fetch(`http://localhost:5000/user/signup`, {
-    //     //         method: "POST",
-    //     //         headers: {
-    //     //             "content-type": "application/json",
-    //     //         },
-    //     //         body: JSON.stringify(newUser),
-    //     //     });
-
-    //     //     const data = await res.json();
-
-    //     //     if (res.ok) {
-    //     //         toast.success("Registration successful! Please login.");
-    //     //         e.target.reset();
-    //     //         router.push("/login"); // Redirect to login page
-    //     //     } else {
-    //     //         toast.error(data.message || "Registration failed. Try again.");
-    //     //     }
-    //     // } catch (error) {
-    //     //     console.error(error);
-    //     //     toast.error("Database connection failed.");
-    //     // }
-    // };
-
-
-
 
 
 
@@ -128,7 +66,7 @@ const Signup = () => {
         if (data) {
             await authClient.signOut();
             toast.success("Registration successful ! Please login.");
-            redirect("/login");
+            redirect("/signin");
         }
 
         if (error) {
@@ -201,7 +139,7 @@ const Signup = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 name="password"
-                                placeholder="••••••••"
+                                placeholder="Enter your Password"
                                 required
                                 onChange={() => setPasswordError("")} // Clear error message when user re-types
                                 className={`w-full border-2 rounded-2xl pl-4 pr-12 py-3 outline-none transition-colors ${passwordError ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-[#c77dff]"
@@ -227,7 +165,7 @@ const Signup = () => {
 
                     <button
                         type="submit"
-                        className={`w-full ${brandBgColor} text-white py-3.5 rounded-2xl  font-semibold transition-all duration-200 active:bg-[#c77dff] shadow-md shadow-[#0096c7]/10 mt-2`}
+                        className={`w-full ${brandBgColor} cursor-pointer text-white py-3.5 rounded-2xl font-semibold border-0 outline-none transition-all duration-200 hover:opacity-90 active:opacity-75 shadow-md shadow-[#0096c7]/10 mt-2`}
                     >
                         Register
                     </button>

@@ -81,6 +81,10 @@ export function EditModal({ room }) {
             amenities: formData.getAll("amenities"),
         };
 
+
+        const{data:tokenData} = await authClient.token()
+        console.log(tokenData)
+
         try {
 
             const res = await fetch(
@@ -89,6 +93,7 @@ export function EditModal({ room }) {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
+                        authorization: `Bearer ${tokenData?.token}`
                     },
                     body: JSON.stringify(updatedRoom),
                 }
@@ -160,13 +165,13 @@ export function EditModal({ room }) {
 
 
 
-                        <Modal.Body className="p-6">
+                        <Modal.Body className="p-2 md:p-6">
                             <Surface variant="default">
-                                <div className="rounded-[36px] p-6 md:p-10">
+                                <div className="rounded-[36px] lg:p-6 md:p-10">
 
                                     <form onSubmit={onSubmit}>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 bg-[#e0aaff]/7 p-10 rounded-2xl">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 bg-[#e0aaff]/7 lg:p-10 rounded-2xl">
 
                                             {/* Room Name */}
                                             <div>
