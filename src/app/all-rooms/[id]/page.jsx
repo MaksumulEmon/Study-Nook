@@ -32,7 +32,7 @@ const RoomDetailsBookPage = async ({ params }) => {
 
     // const userId = session?.user?.id;
 
-
+    // Ownwe Ship Cheak
     const isOwner = room.userId === session?.user?.id;
 
 
@@ -82,7 +82,7 @@ const RoomDetailsBookPage = async ({ params }) => {
                         {/* Listed Date */}
                         <p className="text-2xl font-bold mb-4"> {room.roomName}</p>
 
-                        <p className="text-sm text-gray-400 mb-4">Listed {room.listedDate}</p>
+                        <p className="text-sm text-gray-400 mb-4">Publish Date: {new Date(room.createdAt).toLocaleDateString()}</p>
 
                         {/* Description */}
                         <p className="text-gray-600 text-sm leading-relaxed mb-6">{room.description}</p>
@@ -164,12 +164,27 @@ const RoomDetailsBookPage = async ({ params }) => {
                         <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
                             <p className="text-xs font-semibold text-gray-400 tracking-widest uppercase mb-3">Listed By</p>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-600 flex-shrink-0">
-                                    {room.userName}
+
+                                <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0 relative">
+                                    {room.userImage ? (
+                                        <Image
+                                            src={room.userImage}
+                                            alt="User profile"
+                                            fill
+                                            sizes="40px"
+                                            className="object-cover"
+                                            priority={false}
+                                        />
+                                    ) : (
+                                        <div className="flex h-full w-full items-center justify-center text-sm font-semibold text-gray-600">
+                                            {/* Fallback initials if userImage is a placeholder string */}
+                                            {room.userImage}
+                                        </div>
+                                    )}
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold text-gray-900">{ }</p>
-                                    <p className="text-xs text-gray-400">   {room.userName}</p>
+                                    <p className="text-sm font-semibold text-gray-900">{room.userName}</p>
+                                    <p className="text-xs text-gray-400">  {room.userEmail}</p>
                                 </div>
                             </div>
                         </div>

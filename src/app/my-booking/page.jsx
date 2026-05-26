@@ -5,7 +5,13 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-// import { BookingCancel } from '@/components/BookingCancel';
+
+
+export const metadata = {
+    title: "StudyNook – My Booking",
+};
+
+
 
 const MyBookings = async () => {
 

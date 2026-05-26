@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, BookOpen } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import Mynavlink from "./Mynavlink";
 import { Avatar } from "@heroui/react";
@@ -20,7 +20,7 @@ const Navbar = () => {
 
     const pathname = usePathname();
 
-  
+
     useEffect(() => {
         setOpen(false);
         setIsProfileOpen(false);
@@ -44,6 +44,7 @@ const Navbar = () => {
         try {
             await authClient.signOut();
             toast.error("Logout")
+            router.push('/')
             setIsProfileOpen(false);
         } catch (error) {
             console.log(error);

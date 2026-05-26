@@ -3,6 +3,15 @@ import { Building2 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
+
+
+
+export const metadata = {
+    title: "StudyNook – Available Rooms",
+};
+
+
+
 const AllRooms = async () => {
     const res = await fetch('http://localhost:5000/room')
     const rooms = await res.json();

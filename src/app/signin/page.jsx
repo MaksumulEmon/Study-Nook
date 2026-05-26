@@ -5,11 +5,15 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { FcGoogle } from "react-icons/fc";
 import { authClient } from "@/lib/auth-client";
 import { Eye, EyeOff } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
+
+
+
+
+
+
 
 const Signin = () => {
     const router = useRouter();
@@ -36,74 +40,7 @@ const Signin = () => {
         return ""; // Clear error if all pass
 
 
-
-   
-
-
-
-
-
     };
-
-    // 1. Email/Password Submission Flow
-    // const onSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setPasswordError("");
-
-    //     const formData = new FormData(e.currentTarget);
-    //     const user = Object.fromEntries(formData.entries());
-
-    //     const {data, error} =await authClient.signUp.email({
-    //         email: user.email,
-    //         password: user.password,
-    //         name: user.name,
-    //         image: user.image
-
-    //     })
-
-    //     console.log({data,error})
-
-    //     if(data){
-    //         redirect('/signin')
-    //     }
-
-    //    if (error) {
-    //         toast.error(error.message)
-    //     }
-
-    //     // Validate password before submission
-    //     // const errorMsg = validatePassword(password);
-    //     // if (errorMsg) {
-    //     //     setPasswordError(errorMsg);
-    //     //     return; // Stop submission
-    //     // }
-
-    //     // const newUser = { name, email, photoUrl, password };
-
-    //     // try {
-    //     //     const res = await fetch(`http://localhost:5000/user/signup`, {
-    //     //         method: "POST",
-    //     //         headers: {
-    //     //             "content-type": "application/json",
-    //     //         },
-    //     //         body: JSON.stringify(newUser),
-    //     //     });
-
-    //     //     const data = await res.json();
-
-    //     //     if (res.ok) {
-    //     //         toast.success("Registration successful! Please login.");
-    //     //         e.target.reset();
-    //     //         router.push("/login"); // Redirect to login page
-    //     //     } else {
-    //     //         toast.error(data.message || "Registration failed. Try again.");
-    //     //     }
-    //     // } catch (error) {
-    //     //     console.error(error);
-    //     //     toast.error("Database connection failed.");
-    //     // }
-    // };
-
 
 
 

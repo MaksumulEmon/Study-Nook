@@ -41,14 +41,16 @@ const AddRoomForm = () => {
             pricePerHour: formData.get("pricePerHour"),
             capacity: formData.get("capacity"),
             description: formData.get("description"),
-
             amenities: formData.getAll("amenities"),
+            
          
 
             // ADD THESE
             userId: user.id,
             userName: user.name,
             userEmail: user.email,
+            userImage: user.image,
+
         };
 
         console.log(room)
