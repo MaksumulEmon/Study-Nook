@@ -51,7 +51,7 @@ const onSubmit = async (e) => {
         }
 
     } catch (error) {
-        // toast.error('Something went wrong!');
+        toast.error('Something went wrong!');
     }
 };
 

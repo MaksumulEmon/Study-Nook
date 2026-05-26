@@ -31,7 +31,7 @@ export function DeleteAlert({ room }) {
     });
 
     const data = await res.json();
-    toast.success(`Room Deleted !`);
+    toast.success(`${room.roomName} Deleted !`);
     redirect('/all-rooms')
     console.log(data)
   }

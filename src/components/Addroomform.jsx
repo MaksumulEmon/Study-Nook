@@ -56,8 +56,6 @@ const AddRoomForm = () => {
         console.log(room)
 
 
-
-
         const res = await fetch(
             `http://localhost:5000/room`,
             {
@@ -75,7 +73,7 @@ const AddRoomForm = () => {
         if (data) {
             toast.success('Room Added Successfully!');
             // form.reset();
-            redirect('/all-rooms')
+            redirect('/my-listing')
 
         }
 
