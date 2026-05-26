@@ -9,6 +9,7 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
+
 const RoomDetailsBookPage = async ({ params }) => {
     const { id } = await params;
 
@@ -36,18 +37,11 @@ const RoomDetailsBookPage = async ({ params }) => {
     const isOwner = room.userId === session?.user?.id;
 
 
+
+
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 font-sans">
-            {/* Back Button */}
-            <div className="px-10 pt-8 pb-2">
-                <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M19 12H5M12 5l-7 7 7 7" />
-                    </svg>
-                    Back
-                </button>
-            </div>
-
             {/* Main Content */}
             <div className="px-4 sm:px-6 lg:px-10 py-4 max-w-6xl mx-auto">
                 <div className="lg:flex  gap-8 items-start">

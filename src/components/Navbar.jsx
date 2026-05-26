@@ -10,6 +10,7 @@ import { authClient } from "@/lib/auth-client";
 import Mynavlink from "./Mynavlink";
 import { Avatar } from "@heroui/react";
 import toast from "react-hot-toast";
+import ThemeChanger from "./ThemeChanger";
 
 const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -76,6 +77,8 @@ const Navbar = () => {
 
                 {/* Right Side */}
                 <div className="flex items-center gap-3 relative">
+
+                    <ThemeChanger />
 
                     {/* Auth */}
                     {isPending ? (
@@ -184,39 +187,77 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {open && (
-                <div className="md:hidden px-4 pb-4 border-t bg-white flex flex-col gap-3">
+                <div className="md:hidden fixed left-0 right-0 top-[64px] z-50 px-4">
 
-                    {navLinks.map((link) => (
-                        <Mynavlink
-                            key={link.href}
-                            href={link.href}
-                            onClick={() => setOpen(false)}
-                        >
-                            {link.name}
-                        </Mynavlink>
-                    ))}
+                    {/* Overlay (blur same as you want) */}
+                    <div
+                        className="fixed inset-0 bg-black/30 backdrop-blur-sm"
+                        onClick={() => setOpen(false)}
+                    />
 
-                    {!user && (
-                        <div className="pt-3 flex flex-col gap-2">
-                            <Link
-                                href="/signin"
-                                onClick={() => setOpen(false)}
-                                className="text-center py-2 border rounded-lg"
-                            >
-                                Login
-                            </Link>
+                    {/* Menu Card */}
+                    <div className="relative bg-white/95 shadow-2xl rounded-2xl p-4 mt-2 border animate-in slide-in-from-top-2 duration-200">
 
-                            <Link
-                                href="/signup"
-                                onClick={() => setOpen(false)}
-                                className="text-center py-2 bg-purple-600 text-white rounded-lg"
-                            >
-                                Register
-                            </Link>
+                        <div className="flex flex-col gap-2">
+
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href;
+
+                                return (
+                                    <Mynavlink
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setOpen(false)}
+                                        className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
+                                
+                                ${isActive
+                                                ? "bg-purple-600 text-white shadow-md"
+                                                : "bg-white hover:bg-purple-50 text-gray-700"
+                                            }
+                            `}
+                                    >
+                                        <span
+                                            className={`w-2 h-2 rounded-full transition
+                                    ${isActive ? "bg-white" : "bg-purple-400"}
+                                `}
+                                        />
+
+                                        <span className="font-medium">
+                                            {link.name}
+                                        </span>
+                                    </Mynavlink>
+                                );
+                            })}
+
                         </div>
-                    )}
+
+                        {/* Auth Section */}
+                        {!user && (
+                            <div className="pt-4 mt-4 border-t flex flex-col gap-2">
+
+                                <Link
+                                    href="/signin"
+                                    onClick={() => setOpen(false)}
+                                    className="text-center py-3 rounded-xl border hover:bg-gray-50"
+                                >
+                                    Login
+                                </Link>
+
+                                <Link
+                                    href="/signup"
+                                    onClick={() => setOpen(false)}
+                                    className="text-center py-3 rounded-xl bg-purple-600 text-white hover:bg-purple-700"
+                                >
+                                    Register
+                                </Link>
+
+                            </div>
+                        )}
+
+                    </div>
                 </div>
             )}
+
         </header>
     );
 };
