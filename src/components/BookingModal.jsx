@@ -81,7 +81,7 @@ export default function BookingModal({ room }) {
         //  console.log(data)
 
         try {
-            
+
             const { data: tokenData } = await authClient.token()
 
             const res = await fetch("http://localhost:5000/booking", {
@@ -96,16 +96,29 @@ export default function BookingModal({ room }) {
             const data = await res.json();
             console.log(data)
 
-            if (!res.ok) {
-                toast.error(data.message || "Booking failed");
+            // if (!res.ok) {
+            //     toast.error(data.message || "Booking failed");
+            //     return;
+            // }
+
+            // if (data) {
+            //     toast.success("Room booked successfully!");
+            //     router.push("/my-booking")
+
+            // }
+
+
+            if (!data.success) {
+                toast.error(data.message);
                 return;
             }
 
-            if (data) {
-                toast.success("Room booked successfully!");
-                router.push("/my-booking")
+            toast.success("Room booked successfully");
+            router.push("/my-booking")
 
-            }
+
+
+
 
             // reset
             setDate("");
