@@ -72,7 +72,7 @@ const SearchFilter = ({
                 ))}
             </div>
 
-            <div className="flex gap-2">
+            {/* <div className="flex gap-2">
                 <input
                     type="number"
                     value={minPrice}
@@ -88,7 +88,7 @@ const SearchFilter = ({
                     placeholder="Max Price"
                     className="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-purple-400"
                 />
-            </div>
+            </div> */}
 
         </div>
     );

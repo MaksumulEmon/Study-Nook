@@ -207,7 +207,7 @@ const AllRooms = () => {
 
                         ) : (
 
-                            <div className="flex flex-col lg:flex-row gap-6">
+                            <div className="flex flex-col lg:flex-row gap-6 mb-12">
 
                                 {/* OPTIONAL SIDEBAR SPACE */}
                                 <div className="w-full">
