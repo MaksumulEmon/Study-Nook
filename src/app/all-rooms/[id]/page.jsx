@@ -101,56 +101,58 @@ const RoomDetailsBookPage = async ({ params }) => {
                     <div className="w-80 flex flex-col gap-4 sticky top-6">
 
                         {/* Booking Card */}
-                        <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                            {/* Price */}
-                            <div className="flex items-baseline justify-between mb-5">
-                                <span className="text-3xl font-bold text-gray-900">${room.pricePerHour}</span>
-                                <span className="text-sm ">per hour</span>
-                            </div>
-
-                            {/* Details */}
-                            <div className="flex flex-col gap-3 mb-5">
-                                {/* Floor */}
-                                <div className="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <AlignEndHorizontal className='w-4 h-4' />
-                                    {room.floor}
+                        
+                            <div className="bg-white rounded-2xl p-5 shadow-sm border mt-5  border-gray-100">
+                                {/* Price */}
+                                <div className="flex items-baseline justify-between mb-5">
+                                    <span className="text-3xl font-bold text-gray-900">${room.pricePerHour}</span>
+                                    <span className="text-sm ">per hour</span>
                                 </div>
-                                {/* Capacity */}
-                                <div className="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <UsersRound className='w-4 h-4' />
-                                    Up to {room.capacity}
+
+                                {/* Details */}
+                                <div className="flex flex-col gap-3 mb-5">
+                                    {/* Floor */}
+                                    <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                                        <AlignEndHorizontal className='w-4 h-4' />
+                                        {room.floor}
+                                    </div>
+                                    {/* Capacity */}
+                                    <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                                        <UsersRound className='w-4 h-4' />
+                                        Up to {room.capacity}
+                                    </div>
+                                    {/* Bookings */}
+                                    <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                                        <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M12 6v6l4 2" />
+                                        </svg>
+                                        {room.totalBookings}
+                                    </div>
                                 </div>
-                                {/* Bookings */}
-                                <div className="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="M12 6v6l4 2" />
-                                    </svg>
-                                    {room.totalBookings}
-                                </div>
-                            </div>
 
-                            {/* Book Now Button */}
-                            <BookingModal room={room} />
+                                {/* Book Now Button */}
+                                <BookingModal room={room} />
 
-                            {/* Edit & Delete Buttons */}
-                            <div className="flex gap-2">
+                                {/* Edit & Delete Buttons */}
+                                <div className="flex gap-2">
 
 
-                                {/* <EditModal room={room} />
+                                    {/* <EditModal room={room} />
                                 <DeleteAlert room={room} /> */}
 
 
-                                {isOwner && (
-                                    <>
-                                        <EditModal room={room} />
-                                        <DeleteAlert room={room} />
-                                    </>
-                                )}
+                                    {isOwner && (
+                                        <>
+                                            <EditModal room={room} />
+                                            <DeleteAlert room={room} />
+                                        </>
+                                    )}
 
 
+                                </div>
                             </div>
-                        </div>
+                 
 
                         {/* Listed By Card */}
 
