@@ -52,6 +52,9 @@ const Navbar = () => {
         }
     };
 
+
+
+
     return (
         <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
             <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
@@ -78,7 +81,7 @@ const Navbar = () => {
                 {/* Right Side */}
                 <div className="flex items-center gap-3 relative">
 
-                    <ThemeChanger />
+                    {/* <ThemeChanger /> */}
 
                     {/* Auth */}
                     {isPending ? (

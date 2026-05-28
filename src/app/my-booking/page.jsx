@@ -36,7 +36,7 @@ const MyBookings = async () => {
     console.log(bookings)
 
     return (
- 
+
         <div className="max-w-7xl mx-auto overflow-hidden rounded-2xl md:border-2 border-black mb-12 mt-12">
 
             {/* Empty State */}
@@ -98,13 +98,8 @@ const MyBookings = async () => {
 
                                 <div className="flex justify-between items-center mt-3">
 
-                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold border
-                                ${booking.status === "confirmed"
-                                            ? "bg-green-100 text-green-700 border-green-200"
-                                            : "bg-green-100 text-green-600 border-green-200"
-                                        }
-                            `}>
-                                        {booking.status === "confirmed" ? "Confirmed" : "Cancelled"}
+                                    <span className="px-3 py-1 rounded-full text-xs font-semibold border bg-green-100 text-green-700 border-green-200">
+                                        Confirmed
                                     </span>
 
                                     <BookingCancel booking={booking} bookingId={booking._id} />
@@ -168,15 +163,9 @@ const MyBookings = async () => {
 
                                         <td className="px-6 py-5">
 
-                                            <span className={`px-4 py-2 rounded-full text-sm font-semibold border
-                                        ${booking.status === "confirmed"
-                                                    ? "bg-green-100 text-green-700 border-green-200"
-                                                    : "bg-green-100 text-green-600 border-green-200"
-                                                }
-                                    `}>
-                                                {booking.status === "confirmed"
-                                                    ? "Confirmed"
-                                                    : "Cancelled"}
+
+                                            <span className="px-3 py-1 rounded-full text-xs font-semibold border bg-green-100 text-green-700 border-green-200">
+                                                Confirmed
                                             </span>
 
                                         </td>
