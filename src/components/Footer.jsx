@@ -28,7 +28,7 @@ export default function Footer() {
               <Link href="/" className="text-slate-400 hover:text-white transition-colors duration-200 w-fit">
                 Home
               </Link>
-              <Link href="/rooms" className="text-slate-400 hover:text-white transition-colors duration-200 w-fit">
+              <Link href="/all-rooms" className="text-slate-400 hover:text-white transition-colors duration-200 w-fit">
                 Rooms
               </Link>
               <Link href="/about" className="text-slate-400 hover:text-white transition-colors duration-200 w-fit">
