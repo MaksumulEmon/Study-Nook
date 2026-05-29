@@ -143,7 +143,7 @@ Never share your secret keys or database credentials publicly.
 ## Clone Repository
 
 ```bash id="jz5r1n"
-git clone https://github.com/your-username/studynook-client.git
+git clone:  https://github.com/MaksumulEmon/Study-Nook.git
 ```
 
 ## Install Dependencies
@@ -189,11 +189,11 @@ nodemon index.js
 
 ### 🚀 Client
 
-https://your-live-site-link.vercel.app
+https://studynook-client-eta.vercel.app/
 
 ### 🚀 Server
 
-https://your-server-link.onrender.com
+https://studynook-server-one.vercel.app/
 
 ---
 
@@ -201,7 +201,7 @@ https://your-server-link.onrender.com
 
 ### Developed By
 
-**Maksumul Emon**
+**Md Maksumul Haque Emon**
 
 ---
 
