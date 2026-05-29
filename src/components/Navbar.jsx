@@ -10,7 +10,7 @@ import { authClient } from "@/lib/auth-client";
 import Mynavlink from "./Mynavlink";
 import { Avatar } from "@heroui/react";
 import toast from "react-hot-toast";
-import ThemeChanger from "./ThemeChanger";
+
 
 const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -41,16 +41,38 @@ const Navbar = () => {
         ];
 
 
+    // const handleSignOut = async () => {
+    //     try {
+    //         await authClient.signOut();
+    //         toast.error("Logout")
+    //         setIsProfileOpen(false);
+    //         window.location.href = "/";
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
+
     const handleSignOut = async () => {
         try {
-            await authClient.signOut();
-            toast.error("Logout")
-            router.push('/')
-            setIsProfileOpen(false);
+
+            await authClient.signOut({
+                fetchOptions: {
+                    onSuccess: () => {
+                        window.location.href = "/";
+                    }
+                }
+            });
+
         } catch (error) {
             console.log(error);
         }
     };
+
+
+
+    // router.push('/')
+    // router.refresh()
 
 
 

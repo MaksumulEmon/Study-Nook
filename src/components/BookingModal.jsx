@@ -84,7 +84,7 @@ export default function BookingModal({ room }) {
 
             const { data: tokenData } = await authClient.token()
 
-            const res = await fetch("http://localhost:5000/booking", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URl}/booking`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

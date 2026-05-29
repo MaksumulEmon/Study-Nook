@@ -57,7 +57,7 @@ const AddRoomForm = () => {
 
 
         const res = await fetch(
-            `http://localhost:5000/room`,
+            `${process.env.NEXT_PUBLIC_SERVER_URl}/room`,
             {
                 method: 'POST',
                 headers: {

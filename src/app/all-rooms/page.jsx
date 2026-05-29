@@ -135,7 +135,7 @@ const AllRooms = () => {
             if (minPrice) params.append("minPrice", minPrice);
             if (maxPrice) params.append("maxPrice", maxPrice);
 
-            const res = await fetch(`http://localhost:5000/room?${params.toString()}`);
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URl}/room?${params.toString()}`);
             const data = await res.json();
 
             setRooms(data);

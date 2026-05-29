@@ -32,7 +32,7 @@ const onSubmit = async (e) => {
     try {
 
         const res = await fetch(
-            `http://localhost:5000/room`,
+            `${process.env.NEXT_PUBLIC_SERVER_URl}/room`,
             {
                 method: 'POST',
                 headers: {

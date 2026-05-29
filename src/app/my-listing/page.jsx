@@ -33,7 +33,7 @@ const MyListing = async () => {
 
     // 3️⃣ Fetch only user's rooms
     const res = await fetch(
-        `http://localhost:5000/room?userId=${userId}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URl}/room?userId=${userId}`,
         { cache: "no-store" }
     );
 

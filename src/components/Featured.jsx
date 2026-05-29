@@ -4,7 +4,9 @@ import RoomCard from './RoomCard';
 import { ArrowRight, Building2, Sparkles } from 'lucide-react';
 
 const FeaturedRoom = async () => {
-    const res = await fetch("http://localhost:5000/featured")
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URl}/featured`, {
+        cache:"no-store"
+    })
     const rooms = await res.json();
 
     // const rooms = await res.json();
