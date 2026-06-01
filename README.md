@@ -5,15 +5,15 @@
 ### 📚 Smart Study Room Booking Platform for Students & Libraries
 
 <p align="center">
-  <a href="https://your-live-site-link.vercel.app">
+  <a href="https://studynook-client-eta.vercel.app/">
     <img src="https://img.shields.io/badge/🌐_Live_Site-Visit_Now-9d4edd?style=for-the-badge" />
   </a>
-  <a href="https://github.com/your-username/studynook-client">
+  <!-- <a href="https://github.com/your-username/studynook-client">
     <img src="https://img.shields.io/badge/Client-Repository-c77dff?style=for-the-badge&logo=github" />
   </a>
   <a href="https://github.com/your-username/studynook-server">
     <img src="https://img.shields.io/badge/Server-Repository-7b2cbf?style=for-the-badge&logo=github" />
-  </a>
+  </a> -->
 </p>
 
 <p align="center">
